@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "env": "echo 'API_URL=hhttps://zr9a28onrh.execute-api.us-east-1.amazonaws.com/dev\nCF_ASSETS=https://pub-847f5b30729b4700b804476003b4f8cf.r2.dev/test' > .env"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
