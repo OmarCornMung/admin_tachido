@@ -4,6 +4,7 @@ import { useAuthStore } from '~/store/auth'
 export default defineNuxtPlugin(nuxtApp => {
   const authStore = useAuthStore()
 
+  console.log(authStore.baseURL);
   const axiosInstance = axios.create({
     baseURL: authStore.baseURL,
     headers: {
