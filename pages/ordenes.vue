@@ -1,3 +1,3 @@
 <template>
-    <h1>Hola desde als ordenes</h1>
+    <h1>Pantalla en Construcción</h1>
 </template>

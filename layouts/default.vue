@@ -8,7 +8,7 @@
         @click="rail = false"
       >
         <v-list-item
-          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
+          prepend-avatar="https://randomuser.me/api/portraits/lego/2.jpg"
           :title="user"
           nav
         >
@@ -25,11 +25,6 @@
 
         <v-list density="compact" nav>
           <v-list-item
-            @click="goToPage('')"
-            prepend-icon="mdi-home-city"
-            title="Inicio"
-          ></v-list-item>
-          <v-list-item
             @click="goToPage('productos')"
             prepend-icon="mdi-tshirt-v"
             title="Productos"
@@ -38,6 +33,12 @@
             @click="goToPage('ordenes')"
             prepend-icon="mdi-cart-arrow-right"
             title="Ordenes"
+          ></v-list-item>
+          <v-list-item
+            class="logout-item"
+            @click="logout"
+            prepend-icon="mdi-logout"
+            title="Cerrar Sesión"
           ></v-list-item>
         </v-list>
       </v-navigation-drawer>
@@ -59,6 +60,12 @@ const rail = ref(true);
 const goToPage = (page) => {
   const router = useRouter();
   router.push({ path: `/${page}` });
+};
+
+const logout = async () => {
+  const router = useRouter();
+  await useAuthStore().logout();
+  await router.push("/login");
 };
 </script>
 

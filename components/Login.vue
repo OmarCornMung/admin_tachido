@@ -37,7 +37,7 @@
         Iniciar Sesión
       </v-btn>
 
-      <v-card-text class="text-center">
+      <!-- <v-card-text class="text-center">
         <a
           class="text-blue text-decoration-none"
           href="#"
@@ -46,7 +46,7 @@
         >
           Registrarse <v-icon icon="mdi-chevron-right"></v-icon>
         </a>
-      </v-card-text>
+      </v-card-text> -->
     </v-card>
 
     <v-snackbar

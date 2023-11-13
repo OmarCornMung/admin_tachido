@@ -34,8 +34,8 @@ export const useAuthStore = defineStore('auth', {
         // axios adds an additional "data" attribute to the response
         console.log(response);
 
-        if (response.status === 401 || response.status === 500){
-            return response
+        if (response.status === 401 || response.status === 500) {
+          return response
         }
 
         this.user = response.data.username
@@ -50,8 +50,17 @@ export const useAuthStore = defineStore('auth', {
 
     async logout() {
       const { $axios } = useNuxtApp()
+      try {
+        await $axios.post('/api/logout')
 
-      const response = await $axios.post('/api/logout')
+        this.user = null
+        this.token = ''
+        this.isAuthenticated = false
+        this.allowedMenu = null
+      } catch (error) {
+
+      }
+      await $axios.post('/api/logout')
 
       this.user = null
       this.token = ''
@@ -76,7 +85,7 @@ export const useAuthStore = defineStore('auth', {
         await $axios.put('/company/information', form)
         const { data } = (await $axios.get('/getInfo')).data
         this.user = data
-        
+
       } catch (error) {
         throw new Error(error.message)
       }
